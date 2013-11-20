@@ -1,11 +1,6 @@
-var type
-try {
-  type = require('type-of')
-} catch (ex) {
-  //hide from browserify
-  var r = require
-  type = r('type')
-}
+var type = function(obj) {
+  return (typeof obj);
+};
 
 var jsonpID = 0,
     document = window.document,
@@ -18,7 +13,7 @@ var jsonpID = 0,
     htmlType = 'text/html',
     blankRE = /^\s*$/
 
-var ajax = module.exports = function(options){
+var ajax = function(options){
   var settings = extend({}, options || {})
   for (key in ajax.settings) if (settings[key] === undefined) settings[key] = ajax.settings[key]
 
